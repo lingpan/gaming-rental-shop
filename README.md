@@ -4,13 +4,13 @@
 ## About
 
 It was made using **Spring Boot**,  **Thymeleaf**, **Spring Data JPA**, **Spring Data REST and Docker**.
-Database is in memory **H2**.
+Database is **H2** in file.
 
-Users can search and shop for Game. 
-Search results are paginated. 
-Click on each row will bring detail page for the game
-Each user has his own shopping cart (session functionality).
-Can add/update quantity/remove items in the shopping cart.
+- Users can search and shop for Game. 
+- Search results are paginated. 
+- Click on each row will bring detail page for the game
+- Each user has his own shopping cart (session functionality).
+- Can add/update quantity/remove items in the shopping cart.
 
 
 
@@ -74,7 +74,6 @@ h2 console url can be changed In /src/main/resources/application.properties file
 - Improve page loading speed
 - Robust Search
 - Caching
-- Securitys
 
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>Video Game Information </title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style3.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="game-info">
+  <h1 th:text="${game.name}"></h1>
+  <br>
+  <img th:src="@{${game.image_thumb_url}}" th:alt="${game.name}">
+  <p class="deck" th:text="${game.deck}"></p>
+  <div id="description" class="description" th:utext="${game.description}"></div>
+  <B>Original Release Date: </B><p class="release-date" th:text="${game.originalReleaseDate}"></p>
+  <B>Number Of User Reviews: </B><p class="numberOfUserReviews" th:text="${game.numberOfUserReviews}"></p>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

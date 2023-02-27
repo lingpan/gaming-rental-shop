@@ -1,0 +1,19 @@
+<form th:action="@{/games}" method="get" class="grid-container" id="gameSearch">
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" type="search" name="name" th:value="${name}" class="form-control">
+        <label for="aliases">Aliases:</label>
+        <input id="aliases" type="search" name="aliases" th:value="${aliases}" class="form-control">
+    </div>
+    <div>
+        <label for="platforms">Platforms:</label>
+        <select name="platforms" id="platforms">
+            <option value="">--select a platform--</option>
+            <option th:each="entry : ${platformsMap}" th:value="${entry.key}" th:text="${entry.value}" th:selected="${platforms ==entry.key}"></option>
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-info">Search</button>
+        <button type="button" class="btn btn-info" onclick="document.getElementById('gameSearch').reset()">Reset</button>
+    </div>
+</form>

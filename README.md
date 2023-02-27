@@ -62,14 +62,19 @@ $ docker run --rm -p 8080:8080 --name game-rental game_rental:0.0.1
 
 ### H2 Database web interface
 
-Go to the web browser and visit `http://localhost:8080/h2-console`
+Go to the web browser and visit `http://localhost:8080/h2-ui`
 
 In field **JDBC URL** put
 ```
 jdbc:h2:file:./testdb
 ```
-
+h2 console url can be changed In /src/main/resources/application.properties file
 
 ## Future Improvement
+- Improve page loading speed
+- Robust Search
+- Caching
+- Securitys
+
 
 

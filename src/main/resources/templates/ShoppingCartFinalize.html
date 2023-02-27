@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart Finalize</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style2.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="page-title"> <img th:src="@{/images/cart_64x64.png}" alt="My ShoppingCart"/>  </div>
+<div class="container">
+    <h3>Thank you for Order</h3>
+    Your order number is: <span th:utext="${lastOrderedCart.orderNum}"></span>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

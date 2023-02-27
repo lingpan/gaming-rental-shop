@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Customer Information</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style2.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="page-title"> <img th:src="@{/images/cart_64x64.png}" alt="My ShoppingCart"/> Enter Customer Info </div>
+<form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
+
+    <table>
+        <tr>
+            <td>Name </td>
+            <td><input th:field="*{name}" class="textinput" /></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email </td>
+            <td><input th:field="*{email}" class="textinput"/></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Address </td>
+            <td><input th:field="*{address}" class="textinput"/></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <button type="submit" class="btn btn-info">Save</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+        </tr>
+    </table>
+
+</form>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
+
+
+
+
+

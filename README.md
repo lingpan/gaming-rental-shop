@@ -3,8 +3,9 @@
 
 ## About
 
-It was made using **Spring Boot**,  **Thymeleaf**, **Spring Data JPA**, **Spring Data REST and Docker**.
-Database is **H2** in file.
+This application was built using a variety of technologies including Spring Boot, Spring Data JPA, 
+Spring Data REST, Spring Cache, Thymeleaf and Docker. 
+The database is H2. Redis is used as a caching server.
 
 - Users can search and shop for Game. 
 - Search results are paginated. 

@@ -7,6 +7,7 @@ import com.elleinfo.game.repository.GiantBombRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -29,12 +30,13 @@ public class GiantBombRestTemplateRepository implements GiantBombRepository {
         restTemplate = builder2.build();
     }
 
+    @Cacheable("giantBombGamesSearch")
     public GiantBombResponse<GiantBombGame> getGames(GiantBombQueryOptions options) {
         try {
             final HttpHeaders headers = new HttpHeaders();
             headers.set("User-Agent", "elle-game-demo");
             final HttpEntity<String> entity = new HttpEntity<String>(headers);
-
+            LOGGER.info("Search by "+ options);
             String uri = BASE_URL + "/games/?api_key={apikey}&format=json&limit={limit}&offset={offset}&field_list={field_list}&sort={sort}&filter={filter}";
             ResponseEntity<GiantBombResponse<GiantBombGame>> responseEntity = restTemplate
                     .exchange(
@@ -56,13 +58,14 @@ public class GiantBombRestTemplateRepository implements GiantBombRepository {
         }
     }
 
+    @Cacheable("giantBombGame")
     @Override
     public Optional<GiantBombGame> findById(Integer id) {
         try {
             final HttpHeaders headers = new HttpHeaders();
             headers.set("User-Agent", "elle-game-demo");
             final HttpEntity<String> entity = new HttpEntity<String>(headers);
-
+            LOGGER.info("findById "+ id);
             String uri = BASE_URL + "/games/?api_key={apikey}&format=json&filter=id:{id}";
             ResponseEntity<GiantBombResponse<GiantBombGame>> responseEntity = restTemplate
                     .exchange(

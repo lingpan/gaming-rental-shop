@@ -3,10 +3,11 @@ package com.elleinfo.game.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GiantBombResource {
+public class GiantBombResource implements Serializable {
     /**
      * Unique ID of the resource (without a prefix).
      */

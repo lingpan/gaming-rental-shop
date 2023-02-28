@@ -3,6 +3,7 @@ package com.elleinfo.game.repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class GiantBombQueryOptions {
@@ -12,7 +13,7 @@ public class GiantBombQueryOptions {
 
     public String sort = "date_added";
 
-    public Map<String, List<String>> filter;
+    public TreeMap<String, List<String>> filter;
 
     public GiantBombQueryOptions() {
     }
@@ -55,12 +56,13 @@ public class GiantBombQueryOptions {
         this.sort = sort;
     }
 
-    public Map<String, List<String>> getFilter() {
+    public TreeMap<String, List<String>> getFilter() {
         return filter;
     }
 
     public void setFilter(Map<String, List<String>> filter) {
-        this.filter = filter;
+
+        this.filter = new TreeMap<>(filter);
     }
 
     public String getFieldListString() {
@@ -71,5 +73,34 @@ public class GiantBombQueryOptions {
         return filter.entrySet().stream()
                 .map(entry -> entry.getKey()+":"+String.join("|",entry.getValue()))
                 .collect(Collectors.joining(", "));
+    }
+
+    @Override
+    public String toString() {
+        return "GiantBombQueryOptions ( limit="+limit
+            +", offset="+offset
+            +", sort="+sort
+            +",fidelList" + fieldList
+            +",filterList" + getFilterString()
+            +" )";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GiantBombQueryOptions options = (GiantBombQueryOptions) o;
+        boolean same =  limit == options.limit &&
+                offset == options.offset &&
+                sort.equals(options.sort) &&
+                fieldList.toString().equals(options.fieldList.toString()) &&
+                getFilterString().equals(options.getFilterString())
+                ;
+        System.out.println("object "+ this + "("+ this.toString()+ ")== object("+o.toString()+") = "+same);
+        return same;
     }
 }

@@ -1,6 +1,8 @@
 package com.elleinfo.game.entity;
 
-public abstract class GiantBombResponseBase {
+import java.io.Serializable;
+
+public abstract class GiantBombResponseBase implements Serializable {
     public int status_code;
     public String error;
     public long number_of_total_results;

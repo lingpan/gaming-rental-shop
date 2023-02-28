@@ -33,7 +33,7 @@
       <div th:replace="fragments/search"></div>
     </div>
 
-    <div th:if="${games.size() > 0}">
+    <div th:if="${games != null && games.size() > 0}">
       <div class="text-center"> Total [[${totalItems}]] games</div>
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
@@ -73,7 +73,7 @@
       </table>
     </div>
 
-    <div th:unless="${games.size() > 0}">
+    <div th:unless="${games != null && games.size() > 0}">
       <span>No games found!</span>
     </div>
 

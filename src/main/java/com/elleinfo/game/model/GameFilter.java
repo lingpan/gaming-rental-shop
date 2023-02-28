@@ -76,4 +76,17 @@ public class GameFilter {
             map.put("aliases", Arrays.asList(aliases));
         return map;
     }
+   @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GameFilter gameFilter = (GameFilter) o;
+        return aliases == gameFilter.aliases &&
+                platforms == gameFilter.platforms &&
+                name.equals(gameFilter.name);
+    }
 }

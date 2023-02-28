@@ -67,6 +67,11 @@ public class GameController {
       model.addAttribute("currentPage", pageGames.getNumber() + 1);
       model.addAttribute("totalItems", pageGames.getTotalElements());
       model.addAttribute("totalPages", pageGames.getTotalPages());
+    } catch (Exception e) {
+      e.printStackTrace();;
+      model.addAttribute("message", e.getMessage());
+    }
+
       model.addAttribute("pageSize", size);
       model.addAttribute("platformsMap", Utils.getPlatformsMap());
       model.addAttribute("name", name);
@@ -74,9 +79,7 @@ public class GameController {
       model.addAttribute("platforms", platforms);
       LOGGER.info(model.toString());
       model.addAttribute("games", games);
-    } catch (Exception e) {
-      model.addAttribute("message", e.getMessage());
-    }
+
 
     return "games";
   }

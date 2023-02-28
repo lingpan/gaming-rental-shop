@@ -1,5 +1,5 @@
 
-# Spring Boot Shopping Cart Web App
+# Spring Boot Shopping Cart Web App Version 0.0.2
 
 ## About
 
@@ -12,7 +12,17 @@ Database is **H2** in file.
 - Each user has his own shopping cart (session functionality).
 - Can add/update quantity/remove items in the shopping cart.
 
+## New features in 0.0.2
+- The latest version now includes caching capabilities, significantly enhancing the overall user experience.
 
+
+## How to start Redis Server
+1. Follow this instruction to install Redis on your operating system. https://redis.io/docs/getting-started/installation/
+2. Start redis-server 
+3. ```bash
+   $ redis-server
+    ``` 
+Spring Redis configuration can be changed In /src/main/resources/application.properties file
 
 
 ## How to run
